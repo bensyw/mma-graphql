@@ -1,3 +1,17 @@
-export * from './lib/async';
-export * from './lib/hash';
-export * from './lib/number';
+import { ApolloServer } from 'apollo-server';
+
+import { typeDefs } from './schema'
+
+const server = new ApolloServer({
+    typeDefs
+})
+
+server.listen().then(() => {
+    console.log(
+        `
+        🚀  Server is running!
+        🔉  Listening on port 4000
+        📭  Query at https://studio.apollographql.com/dev
+        `
+    )
+})
